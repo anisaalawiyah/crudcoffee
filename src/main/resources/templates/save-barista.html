@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Save Barista</title>
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous"
+        />
+      </head>
+
+    <body>
+        <div class="container">
+        <h3>Add new Barista</h3>
+        <form action="#" th:action="@{save-barista}" method="post">
+            <input type="text" class="form-control mb-4 col-4"placeholder="Masukkan name" th:field="${barista.name}">
+            <input type="text"class="form-control mb-4 col-4" placeholder="Masukkan age" th:field="${barista.age}">
+            <input type="text"class="form-control mb-4 col-4" placeholder="Masukkan Gender" th:field="${barista.gender}">
+            <input type="text"class="form-control mb-4 col-4" placeholder="Masukkan email" th:field="${barista.email}">
+            <input type="submit" class="btn btn-dark " value="save barista">
+        </form>
+    </div>
+    </body>
+</html>

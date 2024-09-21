@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+</head>
+<body>
+    <nav th:replace="~{fragments/component :: navbar}"></nav>
+    <div class="container mx-3">
+        <h2 class="text-center">show all data</h2>
+    </div>
+    <table 
+        class="table table-success table-striped table-hover table-bordered w-76 mb-1 mx-1 mt-1">
+        <thead class="table-dark text-center">
+            <tr>
+                <th scope="col">Code Sales</th>
+                <th scope="col">Date</th>
+                <th scope="col">Id Coffe</th>
+                <th scope="col">Merk Coffee</th>
+                <th scope="col">Type Coffe</th>
+                <th scope="col">Price Coffee</th>
+                <th scope="col">Id Baristas</th>
+                <th scope="col">Name Of Barista</th>
+                <th scope="col">Age Barista</th>
+                <th scope="col">Gender Barista</th>
+                <th scope="col">Email Barista</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="s : ${sales}">
+                <td th:text="${s.id}"></td>
+                <td th:text="${s.date}"></td>
+                <td th:text="${s.codeCoffe.code}"></td>
+                <td th:text="${s.codeCoffe.merk}"></td>
+                <td th:text="${s.codeCoffe.type}"></td>
+                <td th:text="'RP ' + ${s.codeCoffe.price}"></td>
+                <td th:text="${s.idBarista.id}"></td>
+                <td th:text="${s.idBarista.name}"></td>
+                <td th:text="${s.idBarista.age}"></td>
+                <td th:text="${s.idBarista.gender}"></td>
+                <td th:text="${s.idBarista.email}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

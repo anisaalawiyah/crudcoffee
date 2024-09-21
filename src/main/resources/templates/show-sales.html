@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+</head>
+<body>
+    <nav th:replace="~{fragments/component :: navbar}"></nav>
+    <div div class="container mx-3">
+        <h3>show All Data Sales</h3>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-success table-striped table-hover table-bordered w-75 mb-4 mx-4 mt-1">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th scope="col">Code Sales</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Id Coffe</th>
+                    <th scope="col">Id Baristas</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="s : ${sales}">
+                    <td th:text="${s.id}"></td>
+                    <td th:text="${s.date}"></td>
+                    <td th:text="${s.codeCoffe.code}"></td>
+                    <td th:text="${s.idBarista.id}"></td>
+                    <td class="d-flex flex-row justify-content-evenly">
+                        <a th:href="@{/update-sales/{id}(id=${s.id})}" class="btn btn-outline-success">update</a>
+                        <a th:href="@{/delete-sales/{id}(id=${s.id})}" class="btn btn-outline-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container mx-3">
+        <a th:href="@{add-sales}" class="btn btn-dark ">Add Sales</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add sales</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+<body>
+    <div class="container">
+    <h3>Add sales</h3>
+    <form action="#" th:action="@{save-sales}" method="post">
+        <label for="">Masukan tanggal</label>
+        <input type="date"class="form-control mb-4 col-4"  placeholder="tanggal" th:field="*{sales.date}">
+        <br />
+        <label>masukan code coffe</label>
+        <select placeholder="code coffe" class="form-control mb-4 col-4" th:field="${sales.codeCoffe.code}">
+            <option 
+            th:each="s : ${kopi}"
+            th:value="${s.code}"
+            th:text="${s.code}"
+            ></option>
+        </select>
+        <br/>
+        <label>Masukan id barista</label>
+        <select placeholder="id barista" class="form-control mb-4 col-4" th:field="${sales.idBarista.id}">
+            <option 
+            th:each="s : ${baris}"
+            th:value="${s.id}"
+            th:text="${s.id}"
+            ></option>
+        </select>
+        <br />
+        <input type="submit" class="btn btn-dark col-2" value="save">
+    </form>
+</div>
+</body>
+</html>

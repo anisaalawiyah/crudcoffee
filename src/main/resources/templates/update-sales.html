@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Update sales</title>
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous"
+        />
+      </head>
+<body>
+    <div class="container">
+    <h3>Update sales</h3>
+    <form action="/update-sales" method="post">
+        <input type="hidden" class="form-control mb-4 col-4"th:field="${sales.id}" />
+        <input type="text"class="form-control mb-4 col-4" th:field="${sales.date}" />
+        <select class="form-control mb-4 col-4" th:field="${sales.codeCoffe.code}">
+            <option th:each="coffee : ${cf}" th:value="${coffee.code}" th:text="${coffee.merk}"></option>
+        </select>
+        <select class="form-control mb-4 col-4" th:field="${sales.idBarista.id}">
+            <option th:each="barista : ${bs}" th:value="${barista.id}" th:text="${barista.name}"></option>
+        </select>
+  
+        <button type="submit"class="btn btn-dark col-2">Save sales</button>
+    </form>
+</div>
+</body>
+</html>
